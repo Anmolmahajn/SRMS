@@ -54,7 +54,7 @@ public class Main {
                     sc.close();
                     return;
                 }
-                default -> System.out.println("Invalid choice.");
+                default -> System.out.println("Invalid choice. Try again.");
             }
         }
     }
