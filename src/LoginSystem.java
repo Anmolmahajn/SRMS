@@ -37,10 +37,10 @@ public class LoginSystem {
         String password = sc.nextLine();
 
         if (users.containsKey(username) && users.get(username).getPassword().equals(password)) {
-            System.out.println("✅ Login successful as " + username + " (" + users.get(username).getRole() + ")");
+            System.out.println(" Login successful as " + username + " (" + users.get(username).getRole() + ")");
             return users.get(username).getRole(); // return role
         } else {
-            System.out.println("❌ Invalid credentials.");
+            System.out.println(" Invalid credentials.");
             return null;
         }
     }
