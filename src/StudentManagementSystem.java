@@ -57,16 +57,16 @@ public class StudentManagementSystem {
                     case 10: if (role.equals("admin")) showTopScorer(); break;
                     case 11: if (role.equals("admin")) showAverageMarks(); break;
                     case 0:
-                        System.out.println("🔒 Logged out.\n");
+                        System.out.println(" Logged out.\n");
                         loggedIn = false;
                         break;
                     default:
-                        System.out.println("❌ Invalid choice!");
+                        System.out.println(" Invalid choice!");
                 }
             }
         }
 
-        System.out.println("👋 Exiting program.");
+        System.out.println(" Exiting program.");
     }
 
 
@@ -76,7 +76,7 @@ public class StudentManagementSystem {
             int id = Integer.parseInt(sc.nextLine());
 
             if (studentMap.containsKey(id)) {
-                System.out.println("⚠️ Student ID already exists.");
+                System.out.println(" Student ID already exists.");
                 return;
             }
 
@@ -90,15 +90,15 @@ public class StudentManagementSystem {
             double marks = Double.parseDouble(sc.nextLine());
 
             studentMap.put(id, new Student(id, name, age, marks));
-            System.out.println("✅ Student Added!");
+            System.out.println(" Student Added!");
         } catch (Exception e) {
-            System.out.println("❌ Invalid input. Please try again.");
+            System.out.println(" Invalid input. Please try again.");
         }
     }
 
     private static void viewStudents() {
         if (studentMap.isEmpty()) {
-            System.out.println("⚠️ No student records found.");
+            System.out.println(" No student records found.");
             return;
         }
         for (Student s : studentMap.values()) {
@@ -113,7 +113,7 @@ public class StudentManagementSystem {
         if (s != null) {
             System.out.println(s);
         } else {
-            System.out.println("❌ Student not found.");
+            System.out.println(" Student not found.");
         }
     }
 
@@ -128,9 +128,9 @@ public class StudentManagementSystem {
             s.setAge(Integer.parseInt(sc.nextLine()));
             System.out.print("Enter new Marks: ");
             s.setMarks(Double.parseDouble(sc.nextLine()));
-            System.out.println("✅ Student Updated!");
+            System.out.println(" Student Updated!");
         } else {
-            System.out.println("❌ Student not found.");
+            System.out.println(" Student not found.");
         }
     }
 
@@ -140,7 +140,7 @@ public class StudentManagementSystem {
         if (studentMap.remove(id) != null) {
             System.out.println("🗑️ Student Deleted.");
         } else {
-            System.out.println("❌ Student not found.");
+            System.out.println(" Student not found.");
         }
     }
 
@@ -164,20 +164,20 @@ public class StudentManagementSystem {
 
     private static void showTopScorer() {
         if (studentMap.isEmpty()) {
-            System.out.println("⚠️ No student records.");
+            System.out.println(" No student records.");
             return;
         }
         Student top = Collections.max(studentMap.values(), Comparator.comparingDouble(Student::getMarks));
-        System.out.println("🏆 Top Scorer:\n" + top);
+        System.out.println(" Top Scorer:\n" + top);
     }
 
     private static void showAverageMarks() {
         if (studentMap.isEmpty()) {
-            System.out.println("⚠️ No data to calculate average.");
+            System.out.println(" No data to calculate average.");
             return;
         }
         double avg = studentMap.values().stream().mapToDouble(Student::getMarks).average().orElse(0);
-        System.out.println("📈 Average Marks: " + avg);
+        System.out.println(" Average Marks: " + avg);
     }
 }
 

@@ -6,7 +6,6 @@ public class LoginSystem {
     private static final Scanner sc = new Scanner(System.in);
 
     static {
-        // Default users
         users.put("admin", new User("admin", "admin123", "admin"));
         users.put("student", new User("student", "student123", "student"));
     }
@@ -60,7 +59,7 @@ public class LoginSystem {
         System.out.print("Choose a username: ");
         String username = sc.nextLine();
         if (users.containsKey(username)) {
-            System.out.println("⚠️ Username already exists. Try another.");
+            System.out.println(" Username already exists. Try another.");
             return;
         }
 
@@ -71,11 +70,11 @@ public class LoginSystem {
         String role = sc.nextLine().toLowerCase();
 
         if (!role.equals("admin") && !role.equals("student")) {
-            System.out.println("❌ Invalid role. Choose 'admin' or 'student'.");
+            System.out.println(" Invalid role. Choose 'admin' or 'student'.");
             return;
         }
 
         users.put(username, new User(username, password, role));
-        System.out.println("✅ User registered successfully!");
+        System.out.println(" User registered successfully!");
     }
 }
